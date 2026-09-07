@@ -1060,7 +1060,7 @@ class TestFilterPushdown:
         assert result["x"].tolist() == [6, 7]
         assert tracker.iteration_count == 1
 
-    @pytest.mark.parametrize("dtype", ["float32", "float64"])
+    @pytest.mark.parametrize("dtype", ["float16", "float32", "float64"])
     def test_float_coordinate_types_prune_with_natural_literal(self, dtype):
         tracker = IterationTracker()
         coord = np.arange(8, dtype=dtype)
